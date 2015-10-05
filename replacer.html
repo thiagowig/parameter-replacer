@@ -1,0 +1,34 @@
+<html ng-app="ReplacerModule">
+<head>
+	<title>JDBC Utils</title>
+</head>
+<body ng-controller="ReplacerController">
+
+	<h1>Parameter Replacer</h1>
+
+	<div style="float:left">
+
+		<h3>Query</h3>
+		<textarea rows="10" cols="60" ng-model="query"></textarea>
+
+		<h3>Paramters</h3>
+		<textarea rows="10" cols="60" ng-model="parameters"></textarea>
+
+		<br>
+		<button ng-click="replaceParameters()">Replace</button>
+
+	</div>
+
+	<div style="float:left">
+
+		<h3>Result</h3>
+		<textarea rows="24" cols="60" ng-model="result"></textarea>
+
+	</div>
+
+	<script src="jquery-1.11.3.min.js"></script>
+	<script src="angular.min.js"></script>
+	<script src="ReplacerController.js"></script>
+
+</body>
+</html>
