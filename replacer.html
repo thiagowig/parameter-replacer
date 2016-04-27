@@ -1,91 +1,63 @@
 <html ng-app="ReplacerModule">
+
 <head>
 	<title>JDBC Utils</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
-	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
-	<script src="clipboard.min.js"></script>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="css/material.indigo-pink.min.css">
+	<link rel="stylesheet" href="css/icon?family=Material+Icons">
+	<link rel="stylesheet" href="css/replacer.css">
 </head>
-<style>
-	dialog::backdrop {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.8);
-	}
 
-</style>
 <body ng-controller="ReplacerController">
 
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
+		<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<span class="mdl-layout-title">Parameter Replacer</span>
+			</div>
+		</header>
 
-	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
-
-		<div class="mdl-layout__content">
-
-			<h3>Parameter Replacer</h3>
-
-			<div style="float:left">
-
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-			  	<textarea class="mdl-textfield__input" rows="10" cols="60" ng-model="query"></textarea>
-			    <label class="mdl-textfield__label" for="sample5">Query...</label>
-			  </div>
+		<main class="mdl-layout__content">
+			<div class="page-content">
 
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-			  	<textarea class="mdl-textfield__input" rows="10" cols="60" ng-model="parameters"></textarea>
-			    <label class="mdl-textfield__label" for="sample5">Parameters...</label>
-			  </div>
+					<textarea class="mdl-textfield__input" rows="10" ng-model="query"></textarea>
+					<label class="mdl-textfield__label">Query...</label>
+				</div>
+
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<textarea class="mdl-textfield__input" rows="10" ng-model="parameters"></textarea>
+					<label class="mdl-textfield__label">Par&acirc;metros...</label>
+				</div>
 
 				<br>
-				<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored show-modal" ng-click="replaceParameters()">Replace</button>
+				<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored showResult" ng-click="replaceParameters()">Replace</button>
 
-			</div>
-
-			<div style="float:left">
-
-			  <dialog class="mdl-dialog">
-			    <div class="mdl-dialog__content">
-			      <p>
-			        Result
-			      </p>
-			    </div>
+				<dialog class="mdl-dialog">
+					<div class="mdl-dialog__content">
+						<h3>Resultado</h3>
+					</div>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield">
-				  	<textarea id="result" class="mdl-textfield__input" rows="10" cols="60" ng-model="result" readonly></textarea>
-				  </div>
-			    <div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-			      <button type="button" class="btn mdl-button mdl-js-button mdl-button--raised mdl-button--colored" data-clipboard-target="#result">Copy to clipboard</button>
-						<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored close">Close</button>
-			    </div>
-			  </dialog>
+						<textarea id="result" class="mdl-textfield__input" rows="10" ng-model="result" readonly></textarea>
+					</div>
+					<div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+						<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored clipboardButton" data-clipboard-target="#result">Copy to clipboard</button>
+						<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored closeButton">Fechar</button>
+					</div>
+				</dialog>
+
+				<script src="js/jquery-1.11.3.min.js"></script>
+				<script src="js/angular.min.js"></script>
+				<script src="js/material.min.js"></script>
+				<script src="js/clipboard.min.js"></script>
+				<script src="js/ReplacerController.js"></script>
 
 			</div>
-
-			<script>
-	    var dialog = document.querySelector('dialog');
-	    var showModalButton = document.querySelector('.show-modal');
-	    if (! dialog.showModal) {
-	      dialogPolyfill.registerDialog(dialog);
-	    }
-	    showModalButton.addEventListener('click', function() {
-	      dialog.showModal();
-	    });
-	    dialog.querySelector('.close').addEventListener('click', function() {
-	      dialog.close();
-	    });
-
-			new Clipboard('.btn');
-	  </script>
-
-			<script src="jquery-1.11.3.min.js"></script>
-			<script src="angular.min.js"></script>
-			<script src="ReplacerController.js"></script>
-
 
 		</div>
-	</div>
+	</main>
+
+</div>
 </body>
 </html>
