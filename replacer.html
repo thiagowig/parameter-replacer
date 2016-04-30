@@ -1,0 +1,63 @@
+<html ng-app="ReplacerModule">
+
+<head>
+	<title>JDBC Utils</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/material.indigo-pink.min.css">
+	<link rel="stylesheet" href="css/icon?family=Material+Icons">
+	<link rel="stylesheet" href="css/replacer.css">
+</head>
+
+<body ng-controller="ReplacerController">
+
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+		<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<span class="mdl-layout-title">Parameter Replacer</span>
+			</div>
+		</header>
+
+		<main class="mdl-layout__content">
+			<div class="page-content">
+
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<textarea class="mdl-textfield__input" rows="10" ng-model="query"></textarea>
+					<label class="mdl-textfield__label">Query...</label>
+				</div>
+
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+					<textarea class="mdl-textfield__input" rows="10" ng-model="parameters"></textarea>
+					<label class="mdl-textfield__label">Par&acirc;metros...</label>
+				</div>
+
+				<br>
+				<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored showResult" ng-click="replaceParameters()">Replace</button>
+
+				<dialog class="mdl-dialog">
+					<div class="mdl-dialog__content">
+						<h3>Resultado</h3>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield">
+						<textarea id="result" class="mdl-textfield__input" rows="10" ng-model="result" readonly></textarea>
+					</div>
+					<div class="mdl-dialog__actions mdl-dialog__actions--full-width">
+						<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored clipboardButton" data-clipboard-target="#result">Copy to clipboard</button>
+						<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored closeButton">Fechar</button>
+					</div>
+				</dialog>
+
+				<script src="js/jquery-1.11.3.min.js"></script>
+				<script src="js/angular.min.js"></script>
+				<script src="js/material.min.js"></script>
+				<script src="js/clipboard.min.js"></script>
+				<script src="js/ReplacerController.js"></script>
+
+			</div>
+
+		</div>
+	</main>
+
+</div>
+</body>
+</html>
