@@ -8,7 +8,6 @@ replacerModule.controller('ReplacerController', function($scope){
 	$scope.replaceParameters = function() {
 
 		var parameters = $scope.parameters.split('\n');
-
 		$scope.result = $scope.query;
 
 		$.each(parameters, function() {
@@ -34,7 +33,7 @@ replacerModule.controller('ReplacerController', function($scope){
 	}
 
 	/*
-		Converte o valor logado para um valor reconhecido pelo Oracle.
+		Converte o valor do parâmetro para um valor reconhecido pelo Oracle.
 	*/
 	function convertValue(value) {
 
@@ -68,7 +67,7 @@ replacerModule.controller('ReplacerController', function($scope){
 	}
 
 	/*
-
+	Verifica se o valor contém a string de busca.
 	*/
 	function contains(value, searchString) {
 		return value.indexOf(searchString) > 0;
@@ -79,15 +78,18 @@ replacerModule.controller('ReplacerController', function($scope){
 /*
 	Inicializa
  */
-function initDialog() {
+function initComponents() {
 	var dialog = document.querySelector('dialog');
 	var showModalButton = document.querySelector('.showResult');
+
 	if (! dialog.showModal) {
 		dialogPolyfill.registerDialog(dialog);
 	}
+
 	showModalButton.addEventListener('click', function() {
 		dialog.showModal();
 	});
+
 	dialog.querySelector('.closeButton').addEventListener('click', function() {
 		dialog.close();
 	});
@@ -95,4 +97,4 @@ function initDialog() {
 	new Clipboard('.clipboardButton');
 }
 
-initDialog();
+initComponents();
