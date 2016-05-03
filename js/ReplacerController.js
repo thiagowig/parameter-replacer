@@ -76,7 +76,7 @@ replacerModule.controller('ReplacerController', function($scope){
 });
 
 /*
-	Inicializa
+	Inicializa os componentes da página
  */
 function initComponents() {
 	var dialog = document.querySelector('dialog');
