@@ -1,9 +1,28 @@
 var replacerModule = angular.module('ReplacerModule', []);
 
-replacerModule.controller('ReplacerController', function($scope){
+/*
+
+*/
+replacerModule.config(['$routeProvider',
+	function($routeProvider) {
+		$routeProvider.
+			when('/spring', {
+				templateUrl: 'pages/spring.html',
+				controller: 'SpringController'
+			}).
+			when('/mybatis', {
+				templateUrl: 'pages/mybatis.html'
+			});
+	}
+]);
+
+/*
+
+*/
+replacerModule.controller('SpringController', function($scope){
 
 	/*
-		Substitui os parâmetros.
+		Substitui todos os parâmetros.
 	*/
 	$scope.replaceParameters = function() {
 
@@ -96,5 +115,3 @@ function initComponents() {
 
 	new Clipboard('.clipboardButton');
 }
-
-initComponents();

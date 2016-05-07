@@ -1,4 +1,4 @@
-<html ng-app="ReplacerModule">
+<html>
 
 <head>
 	<title>Query Utils</title>
@@ -8,64 +8,39 @@
 	<link rel="stylesheet" href="css/replacer.css">
 </head>
 
-<body ng-controller="ReplacerController">
+<body ng-app="ReplacerModule">
 
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
 		<header class="mdl-layout__header">
 			<div class="mdl-layout__header-row">
-				<span class="mdl-layout-title">Spring JDBC Parameter Replacer</span>
+				<span class="mdl-layout-title">THIAGO Spring JDBC Parameter Replacer</span>
 			</div>
 		</header>
 
 		<div class="mdl-layout__drawer">
 			<span class="mdl-layout-title">Query Utils</span>
 			<nav class="mdl-navigation">
-				<a class="mdl-navigation__link" href="index.html">Spring JDBC</a>
-				<a class="mdl-navigation__link" href="mybatis.html">Mybatis</a>
+				<a class="mdl-navigation__link" href="#spring">Spring JDBC</a>
+				<a class="mdl-navigation__link" href="#mybatis">Mybatis</a>
 			</nav>
 		</div>
 
 		<main class="mdl-layout__content">
 			<div class="page-content">
 
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<textarea class="mdl-textfield__input" rows="10" ng-model="query"></textarea>
-					<label class="mdl-textfield__label">Query...</label>
-				</div>
-
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-					<textarea class="mdl-textfield__input" rows="10" ng-model="parameters"></textarea>
-					<label class="mdl-textfield__label">Par&acirc;metros...</label>
-				</div>
-
-				<br>
-				<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored showResult" ng-click="replaceParameters()">Replace</button>
-
-				<dialog class="mdl-dialog">
-					<div class="mdl-dialog__content">
-						<h3>Resultado</h3>
-					</div>
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield">
-						<textarea id="result" class="mdl-textfield__input" rows="10" ng-model="result" readonly></textarea>
-					</div>
-					<div class="mdl-dialog__actions mdl-dialog__actions--full-width">
-						<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored clipboardButton" data-clipboard-target="#result">Copy to clipboard</button>
-						<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored closeButton">Fechar</button>
-					</div>
-				</dialog>
-
-				<script src="js/jquery-1.11.3.min.js"></script>
-				<script src="js/angular.min.js"></script>
-				<script src="js/material.min.js"></script>
-				<script src="js/clipboard.min.js"></script>
-				<script src="js/ReplacerController.js"></script>
+				<div ng-view></div>
 
 			</div>
+		</main>
 
-		</div>
-	</main>
+	</div>
 
-</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/material.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/replacer.js"></script>
+
 </body>
 </html>
